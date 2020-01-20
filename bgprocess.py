@@ -2,6 +2,7 @@ import random
 from converter import *
 import ctypes
 import cv2
+import os
 
 
 # This file contains all functions related to having the background process running
@@ -49,6 +50,14 @@ def setwallpaper(folder, platform):
         path = os.path.abspath(folder)
         imagepath = path + '/' + '.wallpaper.jpg'
         ctypes.windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
-    if platform.startswith('linux'):
-        pass
-        # i have not yet made a way to set wallpapers on linux and any other os
+    elif platform.startswith('Darwin'):
+        path = os.path.abspath(folder)
+        imagepath = path + '/' + '.wallpaper.jpg'
+        script = f"""tell application "Finder"
+                    set desktop picture to POSIX file {imagepath}
+                    end tell"""
+        os.system(script)
+    else:
+        path = os.path.abspath(folder)
+        imagepath = path + '/' + '.wallpaper.jpg'
+        os.system(f'terminal -e feh --bg-max -z -x -. -r {imagepath}')

@@ -16,11 +16,6 @@ def verbose(message):
 
 
 def get_screen_resolution(screen=''):
-    """
-    Gets the screen resolution. has auto detection feature. just set the screen resolution with the scre
-    :param screen: the screen resolution. can be set in the function. but if not set will prompt user for input
-    :return: screen width = screenx and screen height = screeny
-    """
     if screen == '':
         screen = input("""Type the screen resolution with this format: width height. IE 1920 1080. 
 or type auto to auto detect the screen resolution:""").strip()
@@ -54,11 +49,6 @@ or type auto to auto detect the screen resolution:""").strip()
 
 
 def get_files(path=''):
-    """
-    get the path and name of each file to be wallpaperfied and save it to .wallpaperfytemplist as well as its resolution
-    :param path: folder path
-    :return:
-    """
     line = 0
     if path == '':
         path = input('Enter path to input folder:')
@@ -91,16 +81,6 @@ def get_files(path=''):
 
 
 def makeoverlay(imagepath, imagex, imagey, screenx, screeny):
-    """
-    Makes part of the wallpaper that goes over the background. it should be big enough to fit the screen, but without
-    stretching
-    :param imagepath: path to image.
-    :param imagex: dimensions x axis.
-    :param imagey: dimensions y axis.
-    :param screenx: screen dimensions x axis
-    :param screeny: screen dimensions y axis
-    :return: overlay image ready
-    """
     scaleby = find_scale_factor(imagex, imagey, screenx, screeny)
     overlay = resize(imagepath, imagex, imagey, scaleby)
     return overlay
@@ -180,8 +160,7 @@ def crop(image, screenx, screeny):
         cropy = 0
     cropx = int(cropx)
     cropy = int(cropy)
-    crop_image = image[cropy:imagey - cropy, cropx:imagex - cropx]  # image[ys:yf, xs:xf] image= whatever will be croped
-    # ys= position y where croping starts yf = position y where stops crops, xs = starts croping here xf= finishes here
+    crop_image = image[cropy:imagey - cropy, cropx:imagex - cropx]
     return crop_image
 
 
