@@ -1,5 +1,4 @@
 import argparse
-
 import converter
 
 parser = argparse.ArgumentParser()
@@ -17,16 +16,20 @@ else:
 if args.input:
     inputfolder = args.input
 else:
-    inputfolder = ''
+    inputfolder = input('Type the path to input folder:')
 if args.output:
     outputfolder = args.output
 else:
-    outputfolder = ''
+    outputfolder = input('Type the path to output folder:')
 
 screenx, screeny = converter.get_screen_resolution(screenress)
 screenx = int(screenx)
 screeny = int(screeny)
 converter.get_files(inputfolder)
-output = converter.get_output_folder(outputfolder)
-converter.makewallpaper(screenx, screeny, output)
+outputfolder = converter.get_output_folder(outputfolder)
+converter.makewallpaper(screenx, screeny, outputfolder)
 print('Job is done!')
+print("""If you liked this software please consider making a donation to one of these crypt wallets
+Bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
+Ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+Monero: 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
