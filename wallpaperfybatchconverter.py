@@ -10,7 +10,6 @@ parser.add_argument('-i', '--input', help='Folder from where the images will be 
 parser.add_argument('-o', '--output', help='Folder to where the wallpaper will be saved')
 args = parser.parse_args()
 
-verboseon = False
 if args.screen_resolution:
     screenress = args.screen_resolution
 else:
@@ -22,7 +21,7 @@ else:
 if args.output:
     outputfolder = args.output
 else:
-    outputfolder = args.output
+    outputfolder = ''
 
 screenx, screeny = converter.get_screen_resolution(screenress)
 screenx = int(screenx)
