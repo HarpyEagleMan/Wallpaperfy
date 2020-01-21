@@ -76,7 +76,6 @@ def get_files(path=''):
                 print(Colortext.SUCCESS + 'Can be converted' + Colortext.END)
             else:
                 print(Colortext.WARNING + "Can't convert" + Colortext.END)
-
     wallpaperfytemp.close()
 
 

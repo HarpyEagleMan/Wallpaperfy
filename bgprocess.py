@@ -31,7 +31,10 @@ def settings(timer=0, folder=''):
 
 def quickwallpaper(folder, screenx, screeny):
     while True:
-        path = folder + '/' + random.choice(os.listdir(folder))
+        files = [os.path.join(path, filename)
+                 for path, dirs, files in os.walk(folder)
+                 for filename in files]
+        path = random.choice(files)
         image = cv2.imread(path)
         if hasattr(image, 'shape'):
             imagey, imagex, channels = image.shape
