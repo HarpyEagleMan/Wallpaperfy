@@ -3,7 +3,7 @@
 Platform agnostic wallpaper maker, and wallpaper manager.\
 Turn any image into a viable wallpaper, without having to stretch, or zoom in and crop the images.\
 Blank spaces that would be there due to image not perfectly filing the screen is filled with parts of the image 
-that is being wallpaperfied.\
+that is being wallpaperfied.
 
 I always liked how plasma desktop from kde does wallpapers, but i can't always afford to install plasma on my computers,
  or simply don't want to. Turning each image manually into an wallpaper is time consuming, so made wallpaperfy.\
