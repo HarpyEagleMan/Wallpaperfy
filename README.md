@@ -69,7 +69,7 @@ So as far as i am concerned this wallpaperfy is feature complete. but i might co
 2 GUI\
 
 # Donations
-if you are interested in this project, please consider making a donation to one of these crypto wallets.
+if you are interested in this project, please consider making a donation to this crypto wallet.
 
 
 Monero
