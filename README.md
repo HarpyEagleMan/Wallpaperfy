@@ -71,11 +71,6 @@ So as far as i am concerned this wallpaperfy is feature complete. but i might co
 # Donations
 if you are interested in this project, please consider making a donation to one of these crypto wallets.
 
-Bitcoin
-bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
-
-Ethereum
-0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
 
 Monero
 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUX  
