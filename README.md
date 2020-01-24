@@ -63,6 +63,11 @@ you can also use arguments on the background process. Run:\
 wallpaperfybgprocess.py -t "time you want for wallpaper to cicle" -i "input folders" -r "screen resolution"\
 wallpaperfy-bgprocess.py will stop changing the wallpapers if the terminal running it is closed.
 
+i can deal with whatever incovenience this application has from being a terminal applications with no installation.\
+So as far as i am concerned this wallpaperfy is feature complete. but i might come back to work more on wallpaperfy if it get requests them i can make\
+1 a proper installer\
+2 GUI\
+
 # Donations
 if you are interested in this project, please consider making a donation to one of these crypto wallets.
 
