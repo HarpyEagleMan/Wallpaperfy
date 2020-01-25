@@ -46,7 +46,7 @@ Go click the big button that says clone or download.\
 Extract the folder.\
 Use 7zip or any other file extractor to get the application into a folder you wish.\
 Open a terminal.\
-change directory into the Application folder.\
+change directory into the application folder within wallpaperfy folder.\
 Cd into wallpaperfy folder by typing cd "insert path to wallpaperfy folder here" without quotes.\
 Run the application.\
 Type: python wallpaperfybatchconverter.py in the terminal and press enter to run the batch converter and make all images
