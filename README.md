@@ -3,7 +3,7 @@
 Platform agnostic wallpaper maker, and wallpaper manager.\
 Turn any image into a viable wallpaper, without having to stretch, or zoom in and crop the images.\
 Blank spaces that would be there due to image not perfectly filing the screen is filled with parts of the image 
-that is being wallpaperfied.\
+that is being wallpaperfied.
 
 I always liked how plasma desktop from kde does wallpapers, but i can't always afford to install plasma on my computers,
  or simply don't want to. Turning each image manually into an wallpaper is time consuming, so made wallpaperfy.\
@@ -63,14 +63,14 @@ you can also use arguments on the background process. Run:\
 wallpaperfybgprocess.py -t "time you want for wallpaper to cicle" -i "input folders" -r "screen resolution"\
 wallpaperfy-bgprocess.py will stop changing the wallpapers if the terminal running it is closed.
 
+i can deal with whatever incovenience this application has from being a terminal applications with no installation.\
+So as far as i am concerned this wallpaperfy is feature complete. but i might come back to work more on wallpaperfy if it get requests them i can make\
+1 a proper installer\
+2 GUI\
+
 # Donations
-if you are interested in this project, please consider making a donation to one of these crypto wallets.
+if you are interested in this project, please consider making a donation to this crypto wallet.
 
-Bitcoin
-bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
-
-Ethereum
-0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
 
 Monero
 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUX  
