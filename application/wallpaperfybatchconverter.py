@@ -1,5 +1,6 @@
+#!/bin/python
 import argparse
-from application import converter
+import converter
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of the screen that wallpapers should fit in'

@@ -1,9 +1,9 @@
+#!/bin/python
 import argparse
 from sys import platform
 from time import sleep
-
-from application.bgprocess import *
-from application.converter import get_screen_resolution
+from bgprocess import *
+from converter import get_screen_resolution
 
 parser = argparse.ArgumentParser()
 

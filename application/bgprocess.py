@@ -1,5 +1,5 @@
 import random
-from application.converter import *
+from converter import *
 import ctypes
 import cv2
 import os
