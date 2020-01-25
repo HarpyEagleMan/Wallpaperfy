@@ -62,7 +62,7 @@ def get_files(path=''):
         else:
             print(Colortext.WARNING + 'It does not exist' + Colortext.END)
             path = input('Try again:')
-    wallpaperfytemp = open('.wallpaperfytemp', 'w')
+    wallpaperfytemp = open('../.wallpaperfytemp', 'w')
     print('Geting all file that can be converted, please wait.')
     for root, dirs, files in os.walk(path):
         for file in files:
@@ -96,7 +96,7 @@ def makebackground(imagepath, imagex, imagey, screenx, screeny):
 def makewallpaper(screenx, screeny, output):
     print('Making wallpapers. Please wait')
     iteration = 0
-    file = open('.wallpaperfytemp', 'r')
+    file = open('../.wallpaperfytemp', 'r')
     for line in file:
         iteration += 1
         imagex = line[line.find('SIZE=') + 5: line.find('x')]
