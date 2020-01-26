@@ -13,9 +13,7 @@ parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of t
 parser.add_argument('-t', '--timer', help='Set the interval between each wallpaper change')
 parser.add_argument('-f', '--folder', help='Set the folder where the images to be wallpaperfied are located')
 args = parser.parse_args()
-print("""If you liked this software please consider making a donation to one of these crypt wallets
-Bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
-Ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+print("""If you liked this software please consider making a donation to this crypto wallet
 Monero: 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
 if args.screen_resolution:
     sress = args.screen_resolution

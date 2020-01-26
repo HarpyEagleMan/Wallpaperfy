@@ -30,7 +30,5 @@ converter.get_files(inputfolder)
 outputfolder = converter.get_output_folder(outputfolder)
 converter.makewallpaper(screenx, screeny, outputfolder)
 print('Job is done!')
-print("""If you liked this software please consider making a donation to one of these crypt wallets
-Bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
-Ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+print("""If you liked this software please consider making a donation to this crypto wallets
 Monero: 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
