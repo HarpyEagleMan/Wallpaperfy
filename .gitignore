@@ -75,3 +75,9 @@ fabric.properties
 !/.wallpaperfytemp
 !/input/
 !/Pipfile.lock
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/vcs.xml
+.idea/wallpaperfy.iml
+Pipfile
+Pipfile.lock

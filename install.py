@@ -12,12 +12,12 @@ def is_admin():
 
 
 if sys.platform.startswith('win32'):
+    print('Platform is windows')
     if is_admin():
-        pass
+        print('admin is on')
     # Code of your program here
     else:
-        # Re-run the program with admin rights
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+        print('you need to run this as admininstrator')
 elif sys.platform.startswith('Darwin'):
     pass
 elif sys.platform.startswith('linux'):
