@@ -178,3 +178,6 @@ def get_output_folder(output=''):
             print(Colortext.WARNING + 'This path does not exist')
             output = input('Try again:')
     return output
+
+# todo there is problem are running this on linux without root privileges. need to fix where the wallpapaertemp file
+#  containing all the list of wallpaper is stored. as well as where the bgprocess stores its file
