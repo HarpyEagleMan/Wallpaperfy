@@ -1,4 +1,4 @@
-#!/bin/python
+#!python
 import argparse
 from sys import platform
 from time import sleep

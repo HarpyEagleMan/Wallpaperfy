@@ -2,6 +2,7 @@ import screeninfo
 import cv2
 import os
 
+
 # this file contains all functions related to converting images to wallpaper
 class Colortext:
     SUCCESS = '\033[92m'
@@ -62,7 +63,7 @@ def get_files(path=''):
         else:
             print(Colortext.WARNING + 'It does not exist' + Colortext.END)
             path = input('Try again:')
-    wallpaperfytemp = open('../.wallpaperfytemp', 'w')
+    wallpaperfytemp = open('/.wallpaperfytemp', 'w')
     print('Geting all file that can be converted, please wait.')
     for root, dirs, files in os.walk(path):
         for file in files:
