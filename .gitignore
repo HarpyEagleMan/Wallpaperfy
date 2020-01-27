@@ -81,3 +81,5 @@ fabric.properties
 .idea/wallpaperfy.iml
 Pipfile
 Pipfile.lock
+.idea/$CACHE_FILE$
+.idea/misc.xml

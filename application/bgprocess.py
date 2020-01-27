@@ -63,4 +63,4 @@ def setwallpaper(folder, platform):
     else:
         path = os.path.abspath(folder)
         imagepath = path + '/' + '.wallpaper.jpg'
-        os.system(f'terminal -e feh --bg-max -z -x -. -r {imagepath}')
+        os.system(f'feh --bg-max -z -r {imagepath}')
