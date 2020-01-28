@@ -83,3 +83,4 @@ Pipfile
 Pipfile.lock
 .idea/$CACHE_FILE$
 .idea/misc.xml
+nohup.out
