@@ -4,6 +4,7 @@ from sys import platform
 from time import sleep
 from bgprocess import *
 from converter import get_screen_resolution
+import os
 
 parser = argparse.ArgumentParser()
 
@@ -27,6 +28,10 @@ if args.folder:
     sfolder = args.folder
 else:
     sfolder = ''
+try:
+    os.system('mkdir /tmp/wallpaperfy')
+except:
+    pass
 timer, folder = settings(stimer, sfolder)
 timer = int(timer)
 screenx, screeny = get_screen_resolution(sress)
