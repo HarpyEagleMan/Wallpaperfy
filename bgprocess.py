@@ -41,7 +41,7 @@ def quickwallpaper(folder, screenx, screeny):
             overlay = makeoverlay(path, imagex, imagey, screenx, screeny)
             background = makebackground(path, imagex, imagey, screenx, screeny)
             wallpaper = combine(background, overlay)
-            imagename = folder + '/' + '.wallpaper.jpg'
+            imagename = '/tmp/wallpaperfy/wallpaper.jpg'
             cv2.imwrite(imagename, wallpaper)
             break
         else:
@@ -62,5 +62,5 @@ def setwallpaper(folder, platform):
         os.system(script)
     else:
         path = os.path.abspath(folder)
-        imagepath = path + '/' + '.wallpaper.jpg'
+        imagepath = '/tmp/wallpaperfy/wallpaper.jpg'
         os.system(f'feh --bg-center -z -r {imagepath}')
