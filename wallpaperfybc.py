@@ -1,6 +1,7 @@
 #!python
 import argparse
 import converter
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of the screen that wallpapers should fit in'
@@ -22,7 +23,10 @@ if args.output:
     outputfolder = args.output
 else:
     outputfolder = input('Type the path to output folder:')
-
+try:
+    os.system('mkdir /tmp/wallpaperfy')
+except:
+    pass
 screenx, screeny = converter.get_screen_resolution(screenress)
 screenx = int(screenx)
 screeny = int(screeny)
