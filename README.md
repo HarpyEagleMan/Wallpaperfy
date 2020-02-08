@@ -65,10 +65,6 @@ wallpaperfy-bgprocess.py will stop changing the wallpapers if the terminal runni
 
 Linux Has installation now. just run python install.py in wallpaperfy folder and you can now run it from anywhere using terminal. just run wallpaperfybc for the batch converter and wallpaperfybp for the background process
 
-i can deal with whatever incovenience this application has from being a terminal applications with no installation.\
-So as far as i am concerned this wallpaperfy is feature complete. but i might come back to work more on wallpaperfy if it get requests them i can make\
-1 a proper installer\
-2 GUI
 
 # Donations
 if you are interested in this project, please consider making a donation to this crypto wallet.
