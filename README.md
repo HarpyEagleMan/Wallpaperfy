@@ -49,7 +49,7 @@ Open a terminal.\
 change directory into the application folder within wallpaperfy folder.\
 Cd into wallpaperfy folder by typing cd "insert path to wallpaperfy folder here" without quotes.\
 Run the application.\
-Type: python wallpaperfybatchconverter.py in the terminal and press enter to run the batch converter and make all images
+Type: python wallpaperfybc.py in the terminal and press enter to run the batch converter and make all images
  inside a folder and its sub folders into wallpapers.\
 The terminal will prompt for the folder locations and will find images within sub folders.\
 alternatively, you can run wallpaperfybgprocess.py to have a background process running that will periodically change 
@@ -57,11 +57,11 @@ your wallpaper into a wallpaper created by wallpaperfy.
 
 You can use command line arguments if you don't want to wait until the program prompt you for input.\
 Just type in the command line python:\
-wallpaperfybatchvconver.py -r "screen resolution" -i "path to input folder" -o "path to output folder"
+wallpaperfybc -r "screen resolution" -i "path to input folder" -o "path to output folder"
 
 you can also use arguments on the background process. Run:\
-wallpaperfybgprocess.py -t "time you want for wallpaper to cicle" -i "input folders" -r "screen resolution"\
-wallpaperfy-bgprocess.py will stop changing the wallpapers if the terminal running it is closed.
+wallpaperfybp -t "time you want for wallpaper to cicle" -i "input folders" -r "screen resolution"\
+wallpaperfybp will stop changing the wallpapers if the terminal running it is closed.
 
 Linux Has installation now. just run python install.py in wallpaperfy folder and you can now run it from anywhere using terminal. just run wallpaperfybc for the batch converter and wallpaperfybp for the background process
 
