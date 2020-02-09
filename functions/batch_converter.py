@@ -1,6 +1,7 @@
 import screeninfo
-import cv2
-import os
+from cv2 import imread, GaussianBlur, BORDER_DEFAULT, resize, INTER_AREA, imwrite
+from os.path import isdir, exists, join
+from os import walk
 
 
 # this file contains all functions related to converting images to wallpaper
@@ -54,8 +55,8 @@ def get_files(path=''):
     if path == '':
         path = input('Enter path to input folder:')
     while True:
-        if os.path.exists(path):
-            if os.path.isdir(path):
+        if exists(path):
+            if isdir(path):
                 break
             else:
                 print(Colortext.WARNING + 'Its not a folder' + Colortext.END)
@@ -65,11 +66,11 @@ def get_files(path=''):
             path = input('Try again:')
     wallpaperfytemp = open('/tmp/wallpaperfy/wallpaperfytemp', 'w')
     print('Geting all file that can be converted, please wait.')
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in walk(path):
         for file in files:
             line += 1
-            imagepath = os.path.join(root, file)
-            image = cv2.imread(imagepath)
+            imagepath = join(root, file)
+            image = imread(imagepath)
             print(f'{imagepath}')
             if hasattr(image, 'shape'):
                 imagey, imagex, channels = image.shape
@@ -89,7 +90,7 @@ def makeoverlay(imagepath, imagex, imagey, screenx, screeny):
 def makebackground(imagepath, imagex, imagey, screenx, screeny):
     scaleby = find_scale_factor(imagex, imagey, screenx, screeny, True)
     background = resize(imagepath, imagex, imagey, scaleby)
-    background = cv2.GaussianBlur(background, (31, 31), cv2.BORDER_DEFAULT)
+    background = GaussianBlur(background, (31, 31), BORDER_DEFAULT)
     background = crop(background, screenx, screeny)
     return background
 
@@ -128,16 +129,16 @@ def find_scale_factor(imagex, imagey, screenx, screeny, background=False):
 
 
 def resize(imagepath, imagex, imagey, scaleby):
-    image = cv2.imread(imagepath)
+    image = imread(imagepath)
     imagex = int(imagex * scaleby)
     imagey = int(imagey * scaleby)
     dim = (imagex, imagey)
-    resizedimage = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+    resizedimage = resize(image, dim, interpolation=INTER_AREA)
     return resizedimage
 
 
 def save(name, image):  # saves new image
-    cv2.imwrite(name, image)
+    imwrite(name, image)
 
 
 def combine(background, overlay):
@@ -168,8 +169,8 @@ def get_output_folder(output=''):
     if output == '':
         output = input('Type the path to the output folder:')
     while True:
-        if os.path.exists(output):
-            if os.path.isdir(output):
+        if exists(output):
+            if isdir(output):
                 break
             else:
                 print(Colortext.WARNING + 'this is not a folder')

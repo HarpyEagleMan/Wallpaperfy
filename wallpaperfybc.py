@@ -1,9 +1,9 @@
-#!python
-import argparse
-import converter
-import os
+#!/bin/python
+from argparse import ArgumentParser
+from functions.batch_converter import get_screen_resolution, get_files, get_output_folder, makewallpaper
+from os import system
 
-parser = argparse.ArgumentParser()
+parser = ArgumentParser()
 parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of the screen that wallpapers should fit in'
                                                       'use this format: width height, like this: 1920 1080, it also '
                                                       'accepts "auto" as a valid value')
@@ -24,15 +24,15 @@ if args.output:
 else:
     outputfolder = input('Type the path to output folder:')
 try:
-    os.system('mkdir /tmp/wallpaperfy')
+    system('mkdir /tmp/wallpaperfy')
 except:
     pass
-screenx, screeny = converter.get_screen_resolution(screenress)
+screenx, screeny = get_screen_resolution(screenress)
 screenx = int(screenx)
 screeny = int(screeny)
-converter.get_files(inputfolder)
-outputfolder = converter.get_output_folder(outputfolder)
-converter.makewallpaper(screenx, screeny, outputfolder)
+get_files(inputfolder)
+outputfolder = get_output_folder(outputfolder)
+makewallpaper(screenx, screeny, outputfolder)
 print('Job is done!')
 print("""If you liked this software please consider making a donation to this crypto wallets
 Monero: 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")

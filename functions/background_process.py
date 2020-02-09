@@ -1,9 +1,9 @@
-import random
-from converter import *
-import ctypes
-import cv2
-import os
-
+from random import choice
+from functions.batch_converter import makeoverlay, makebackground, combine
+from ctypes import windll
+from cv2 import imread, imwrite
+from os.path import isdir, join, abspath
+from os import walk, system
 
 # This file contains all functions related to having the background process running
 
@@ -22,7 +22,7 @@ def settings(timer=0, folder=''):
         print(Colortext.WARNING + 'Needs a folder to get images from' + Colortext.END)
         folder = input('Folder path:')
     while True:
-        if os.path.isdir(folder):
+        if isdir(folder):
             break
         else:
             print(Colortext.WARNING + 'Is not a folder')
@@ -31,18 +31,18 @@ def settings(timer=0, folder=''):
 
 def quickwallpaper(folder, screenx, screeny):
     while True:
-        files = [os.path.join(path, filename)
-                 for path, dirs, files in os.walk(folder)
+        files = [join(path, filename)
+                 for path, dirs, files in walk(folder)
                  for filename in files]
-        path = random.choice(files)
-        image = cv2.imread(path)
+        path = choice(files)
+        image = imread(path)
         if hasattr(image, 'shape'):
             imagey, imagex, channels = image.shape
             overlay = makeoverlay(path, imagex, imagey, screenx, screeny)
             background = makebackground(path, imagex, imagey, screenx, screeny)
             wallpaper = combine(background, overlay)
             imagename = '/tmp/wallpaperfy/wallpaper.jpg'
-            cv2.imwrite(imagename, wallpaper)
+            imwrite(imagename, wallpaper)
             break
         else:
             pass
@@ -50,17 +50,16 @@ def quickwallpaper(folder, screenx, screeny):
 
 def setwallpaper(folder, platform):
     if platform.startswith('win32'):
-        path = os.path.abspath(folder)
+        path = abspath(folder)
         imagepath = path + '/' + '.wallpaper.jpg'
-        ctypes.windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
+        windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
     elif platform.startswith('Darwin'):
-        path = os.path.abspath(folder)
+        path = abspath(folder)
         imagepath = path + '/' + '.wallpaper.jpg'
         script = f"""tell application "Finder"
                     set desktop picture to POSIX file {imagepath}
                     end tell"""
-        os.system(script)
+        system(script)
     else:
-        path = os.path.abspath(folder)
         imagepath = '/tmp/wallpaperfy/wallpaper.jpg'
-        os.system(f'feh --bg-center -z -r {imagepath}')
+        system(f'feh --bg-center -z -r {imagepath}')

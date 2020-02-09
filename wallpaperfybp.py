@@ -1,12 +1,12 @@
 #!/bin/python
-import argparse
+from argparse import ArgumentParser
 from sys import platform
 from time import sleep
-from bgprocess import *
-from converter import get_screen_resolution
-import os
+from functions.background_process import quickwallpaper, setwallpaper, settings
+from functions.batch_converter import get_screen_resolution
+from os import system
 
-parser = argparse.ArgumentParser()
+parser = ArgumentParser()
 
 parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of the screen that wallpapers should fit in'
                                                       'use this format: width height, like this: 1920 1080, it also '
@@ -29,7 +29,7 @@ if args.folder:
 else:
     sfolder = ''
 try:
-    os.system('mkdir /tmp/wallpaperfy')
+    system('mkdir /tmp/wallpaperfy')
 except:
     pass
 timer, folder = settings(stimer, sfolder)

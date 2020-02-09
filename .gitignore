@@ -1,1 +1,5 @@
-.git
+.idea/.gitignore
+.idea/Wallpaperfy.iml
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/vcs.xml
