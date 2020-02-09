@@ -27,8 +27,10 @@ Feh if on linux and it only works on i3 and maybe other wm i dont know i have no
 
 # install
 Run install.py with python, install only works on linux right now.
-then run wallpaperfybc for the batch converter
-or wallpaperfybp for background process that will change wallpaper at a set time
+
+# Running
+run wallpaperfy-batch-converter for the batch converter on a terminal
+or wallpaperfy-background-process for background process that will change wallpaper at a set time
 
 # Donations
 if you are interested in this project, please consider making a donation to this crypto wallet.
