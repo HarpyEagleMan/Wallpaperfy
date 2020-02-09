@@ -1,4 +1,4 @@
-from ctypes import windll
+import ctypes
 from os import system, makedirs
 from os.path import isdir, islink
 from shutil import rmtree, copy2
@@ -7,7 +7,7 @@ from sys import platform
 
 def is_admin():
     try:
-        return windll.shell32.IsUserAnAdmin()
+        return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
 
@@ -40,10 +40,11 @@ elif platform.startswith('linux'):
         print('symbolik link already exist for wallpaperfybp')
         system('sudo rm /bin/wallpaperfybp')
     makedirs("/usr/lib/wallpaperfy")
+    makedirs("/usr/lib/wallpaperfy/functions")
     copy2('wallpaperfybc.py', '/usr/lib/wallpaperfy')
     copy2('wallpaperfybp.py', '/usr/lib/wallpaperfy')
-    copy2('functions/background_process.py', '/usr/lib/wallpaperfy')
-    copy2('functions/batch_converter.py', '/usr/lib/wallpaperfy')
+    copy2('functions/background_process.py', '/usr/lib/wallpaperfy/functions')
+    copy2('functions/batch_converter.py', '/usr/lib/wallpaperfy/functions')
     system('sudo ln -s /usr/lib/wallpaperfy/wallpaperfybc.py /bin/wallpaperfybc')
     system('sudo ln -s /usr/lib/wallpaperfy/wallpaperfybp.py /bin/wallpaperfybp')
     system('sudo chmod +x /usr/lib/wallpaperfy/wallpaperfybc.py')
