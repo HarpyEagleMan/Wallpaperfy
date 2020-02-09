@@ -1,6 +1,6 @@
 from random import choice
 from functions.batch_converter import makeoverlay, makebackground, combine
-from ctypes import windll
+import ctypes
 from cv2 import imread, imwrite
 from os.path import isdir, join, abspath
 from os import walk, system

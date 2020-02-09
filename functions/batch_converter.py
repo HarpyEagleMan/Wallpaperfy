@@ -1,5 +1,6 @@
 import screeninfo
-from cv2 import imread, GaussianBlur, BORDER_DEFAULT, resize, INTER_AREA, imwrite
+from cv2 import imread, GaussianBlur, BORDER_DEFAULT, INTER_AREA, imwrite
+from cv2 import resize as cvresize
 from os.path import isdir, exists, join
 from os import walk
 
@@ -133,7 +134,7 @@ def resize(imagepath, imagex, imagey, scaleby):
     imagex = int(imagex * scaleby)
     imagey = int(imagey * scaleby)
     dim = (imagex, imagey)
-    resizedimage = resize(image, dim, interpolation=INTER_AREA)
+    resizedimage = cvresize(image, dim, interpolation=INTER_AREA)
     return resizedimage
 
 
