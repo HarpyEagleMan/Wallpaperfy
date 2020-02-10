@@ -39,3 +39,9 @@ if you are interested in this project, please consider making a donation to this
 Monero
 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUX  
 FHuND9SZju2DN8pjDbh7wEh
+
+Ethereum
+0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+
+Bitcoin
+bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
