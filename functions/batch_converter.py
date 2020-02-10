@@ -60,11 +60,11 @@ def get_files(path=''):
             if isdir(path):
                 break
             else:
-                print(Colortext.WARNING + 'Its not a folder' + Colortext.END)
+                print(Colortext.WARNING + 'Its not a folder. try another input folder' + Colortext.END)
                 path = input('Try again:')
         else:
             print(Colortext.WARNING + 'It does not exist' + Colortext.END)
-            path = input('Try again:')
+            path = input('Try again, another input folder:')
     wallpaperfytemp = open('/tmp/wallpaperfy/wallpaperfytemp', 'w')
     print('Geting all file that can be converted, please wait.')
     for root, dirs, files in walk(path):
@@ -75,7 +75,7 @@ def get_files(path=''):
             print(f'{imagepath}')
             if hasattr(image, 'shape'):
                 imagey, imagex, channels = image.shape
-                wallpaperfytemp.write(f':LINE={line}:SIZE={imagex}x{imagey}:PATH={os.path.join(root, file)}' + '\n')
+                wallpaperfytemp.write(f':LINE={line}:SIZE={imagex}x{imagey}:PATH={join(root, file)}' + '\n')
                 print(Colortext.SUCCESS + 'Can be converted' + Colortext.END)
             else:
                 print(Colortext.WARNING + "Can't convert" + Colortext.END)

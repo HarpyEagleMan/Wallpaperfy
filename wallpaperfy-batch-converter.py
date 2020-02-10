@@ -2,6 +2,8 @@
 from argparse import ArgumentParser
 from functions.batch_converter import get_screen_resolution, get_files, get_output_folder, makewallpaper
 from os import system
+from sys import platform
+from functions.WiRM import operationalSystem
 
 parser = ArgumentParser()
 parser.add_argument('-r', '--resolution', help='Onput the resolution of the screen that wallpapers should fit in'
@@ -11,8 +13,8 @@ parser.add_argument('-i', '--input', help='Folder from where the images will be 
 parser.add_argument('-o', '--output', help='Folder to where the wallpaper will be saved')
 args = parser.parse_args()
 
-if args.screen_resolution:
-    screenress = args.screen_resolution
+if args.resolution:
+    screenress = args.resolution
 else:
     screenress = ''
 if args.input:
@@ -23,10 +25,16 @@ if args.output:
     outputfolder = args.output
 else:
     outputfolder = input('Type the path to output folder:')
-try:
-    system('mkdir /tmp/wallpaperfy')
-except:
-    pass
+
+if operationalSystem is  == 'linux': # change this into a way to find what is it is on
+    print('OS is linux')
+    try:
+        system('mkdir /tmp/wallpaperfy')
+    except:
+        pass
+eli operaf:
+    print('operational system not linux')
+
 screenx, screeny = get_screen_resolution(screenress)
 screenx = int(screenx)
 screeny = int(screeny)

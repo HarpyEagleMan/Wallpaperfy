@@ -14,16 +14,16 @@ parser.add_argument('-r', '--resolution', help='The resolution of the screen tha
 parser.add_argument('-t', '--timer', help='Set the time between each wallpaper change')
 parser.add_argument('-i', '--input', help='Set the folder where the images to be wallpaperfied are located')
 args = parser.parse_args()
-if args.screen_resolution:
-    sress = args.screen_resolution
+if args.resolution:
+    sress = args.resolution
 else:
     sress = ''
 if args.timer:
     stimer = args.timer
 else:
     stimer = 0
-if args.folder:
-    sfolder = args.folder
+if args.input:
+    sfolder = args.input
 else:
     sfolder = ''
 try:
