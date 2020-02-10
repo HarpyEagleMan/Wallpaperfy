@@ -4,7 +4,7 @@ from functions.batch_converter import get_screen_resolution, get_files, get_outp
 from os import system
 
 parser = ArgumentParser()
-parser.add_argument('-r', '--screen_resolution', help='Onput the resolution of the screen that wallpapers should fit in'
+parser.add_argument('-r', '--resolution', help='Onput the resolution of the screen that wallpapers should fit in'
                                                       'use this format: width height, like this: 1920 1080, it also '
                                                       'accepts "auto" as a valid value')
 parser.add_argument('-i', '--input', help='Folder from where the images will be taken to make wallpapers')
@@ -35,4 +35,6 @@ outputfolder = get_output_folder(outputfolder)
 makewallpaper(screenx, screeny, outputfolder)
 print('Job is done!')
 print("""If you liked this software please consider making a donation to this crypto wallets
-Monero: 46L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
+ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
+Monero: 45L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")

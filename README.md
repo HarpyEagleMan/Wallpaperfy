@@ -20,17 +20,31 @@ After Wallpaperfy
 # Work in progress
 
 # Requirements
-Python
+Python 3 possible 3.8 is what i tested it.
 Opencv-python a python package
 screeninfo another python package
 Feh if on linux and it only works on i3 and maybe other wm i dont know i have not tested it yet 
 
 # install
-Run install.py with python, install only works on linux right now.
+Copy the contents of wallpaperfy folder to where you want to install. add this place to the PATH variable or make a
+simlink so to wallpaperfy-batch-convert from whereveris your PATH. and to wallpaperfy-manager
 
 # Running
 run wallpaperfy-batch-converter for the batch converter on a terminal
-or wallpaperfy-background-process for background process that will change wallpaper at a set time
+or wallpaperfy-manager for background process that will change wallpaper at a set time
+
+# command line arguments
+
+you can pass these as arguments for either wallpaperfy-batch-converter or wallpaperfy-manager
+-r "1920 1080" or whattever is your scree resolution. to set the resolution of the wallpapers. or just use -r auto\
+-i "path to input folder" this is where the folder containing the images to be wallpaperfied is. it will also take all
+images in subfolder
+
+wallpaperfy-batch-converter can also accept this argument
+-o "path to output folder" this is the folder where the images being converted will be saved to
+
+wallpaperfy-manager can also accept this argument
+-t "time in seconds" time it takes to change the wallpaper for a new one
 
 # Donations
 if you are interested in this project, please consider making a donation to this crypto wallet.
