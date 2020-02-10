@@ -1,0 +1,18 @@
+Installation currently only works on linux
+    * need to find out how and where and how to install stuff on windows, what is the folder for the script to run
+    from command line
+    * shabang to alow wallpaperfy to be lanched without calling python first does not work the same on linux and windows
+    need to find a way around that.
+    * find out what folder and how to install on macos
+
+Running wallpaperfy
+    * need someone to test it on macos as i dont have apple stuff
+    * need someone to test in other desktop enviroment in linux. other than the one i tested. i3, i know
+    diferent DE use diferent ways of setting wallpapers
+    * also all other oses may need its way of setting wallpaper
+    * wallpaperfy needs a terminal always open in order to work. need to fix that.
+
+need to make it more modular so it can have plugins to do other stuff. like having more than 1 image in the same
+wallpaper
+or having the image at the center have space from the border and drop a shadow. also have the background be dimmed
+or any other plugin anyone can think off
