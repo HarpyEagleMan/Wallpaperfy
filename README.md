@@ -6,7 +6,7 @@ Blank spaces that would be there due to image not perfectly filing the screen is
 that is being wallpaperfied.
 
 I always liked how plasma desktop from kde does wallpapers, but i can't always afford to install plasma on my computers,
- or simply don't want to. Turning each image manually into an wallpaper is time consuming, so made wallpaperfy.\
+ or simply don't want to. Turning each image manually into an wallpaper is time consuming, so i made wallpaperfy.\
 With this tool i can have wallpapers kde style but without having to install plasma desktop
 
 Look this example:
@@ -19,37 +19,30 @@ After Wallpaperfy
 
 # Work in progress
 
-this is a work in progress, not every thing is working as intended.
-on linux the wallpaper manager is working on the i3 desktop, i have yet to test in any other desktop environment\
-windows i am fixing some bugs
-i could not test on mac because i dont have it.
+It's a work in progress, not every thing is working as intended.
+on linux the the batch converter is working as intended
+i have yet to test it on any other os. if you want to test it and give me feed back feel free to do so
 
 # Requirements
 Python 3 possible 3.8 is what i tested it.
 Opencv-python a python package
 screeninfo another python package
-Feh if on linux and it only works on i3 and maybe other wm i dont know i have not tested it yet 
+Feh if on linux and it only works on i3 and maybe other Dynamic window managers. i dont know i have not tested it yet 
 
 # install
 Copy the contents of wallpaperfy folder to where you want to install. add this place to the PATH variable or make a
-simlink so to wallpaperfy-batch-convert from whereveris your PATH. and to wallpaperfy-manager
+simlink to Batch-converter from wherever is your PATH.
 
 # Running
-run wallpaperfy-batch-converter for the batch converter on a terminal
-or wallpaperfy-manager for background process that will change wallpaper at a set time
+run Batch-converter for the batch converter on a terminal
 
 # command line arguments
 
-you can pass these as arguments for either wallpaperfy-batch-converter or wallpaperfy-manager
+you can pass these as arguments for Batch-converter 
 -r "1920 1080" or whattever is your scree resolution. to set the resolution of the wallpapers. or just use -r auto\
 -i "path to input folder" this is where the folder containing the images to be wallpaperfied is. it will also take all
 images in subfolder
-
-wallpaperfy-batch-converter can also accept this argument
 -o "path to output folder" this is the folder where the images being converted will be saved to
-
-wallpaperfy-manager can also accept this argument
--t "time in seconds" time it takes to change the wallpaper for a new one
 
 # Donations
 if you are interested in this project, please consider making a donation to this crypto wallet.
