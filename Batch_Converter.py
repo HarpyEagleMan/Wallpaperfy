@@ -1,11 +1,11 @@
 #!/bin/python
 from argparse import ArgumentParser
-from base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper, operational_system, desktop_environment
+from base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
 
 parser = ArgumentParser()
-parser.add_argument('-r', '--resolution', help='Onput the resolution of the screen that wallpapers should fit in'
-                                                      'use this format: width height, like this: 1920 1080, it also '
-                                                      'accepts "auto" as a valid value')
+parser.add_argument('-r', '--resolution', help='The resolution of the screen that wallpapers should fit in'
+                                               'use this format: width height, like this: 1920 1080, it also '
+                                               'accepts "auto" as a valid value')
 parser.add_argument('-i', '--input', help='Folder from where the images will be taken to make wallpapers')
 parser.add_argument('-o', '--output', help='Folder to where the wallpaper will be saved')
 args = parser.parse_args()
@@ -22,8 +22,6 @@ if args.output:
     outputfolder = args.output
 else:
     outputfolder = input('Type the path to output folder:')
-
-
 
 screenx, screeny = get_screen_resolution(screenress)
 screenx = int(screenx)
