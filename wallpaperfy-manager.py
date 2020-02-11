@@ -9,8 +9,8 @@ from os import system
 parser = ArgumentParser()
 
 parser.add_argument('-r', '--resolution', help='The resolution of the screen that wallpapers should fit in '
-                                                'use this format: width height, like this: 1920 1080, it also '
-                                                'accepts "auto" as a valid value')
+                                               'use this format: width height, like this: 1920 1080, it also '
+                                               'accepts "auto" as a valid value')
 parser.add_argument('-t', '--timer', help='Set the time between each wallpaper change')
 parser.add_argument('-i', '--input', help='Set the folder where the images to be wallpaperfied are located')
 args = parser.parse_args()
@@ -26,6 +26,7 @@ if args.input:
     sfolder = args.input
 else:
     sfolder = ''
+
 try:
     system('mkdir /tmp/wallpaperfy')
 except:
