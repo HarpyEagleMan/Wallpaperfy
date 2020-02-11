@@ -19,13 +19,14 @@ After Wallpaperfy
 
 # Work in progress
 
-It's a work in progress, not every thing is working as intended.
-on linux the the batch converter is working as intended
+It's a work in progress, wallpaper manager still not working but it can batch convert a folder and its sub folders into
+wallpapers, and output it into another folder, no problem.
+tested on windows 10 and linux.
 i have yet to test it on any other os. if you want to test it and give me feed back feel free to do so
 
 # Requirements
 Python 3 possible 3.8 is what i tested it.
-Opencv-python a python package
+opencv-python a python package
 screeninfo another python package
 Feh if on linux and it only works on i3 and maybe other Dynamic window managers. i dont know i have not tested it yet 
 
@@ -34,7 +35,7 @@ Copy the contents of wallpaperfy folder to where you want to install. add this p
 simlink to Batch-converter from wherever is your PATH.
 
 # Running
-run Batch-converter for the batch converter on a terminal
+run Batch-converter on a terminal
 
 # command line arguments
 
