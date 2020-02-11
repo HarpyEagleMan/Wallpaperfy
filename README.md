@@ -19,6 +19,12 @@ After Wallpaperfy
 
 # Work in progress
 
+this is a work in progress, not every thing is working as intended.
+the batch convert is working on linux. the wallpaper manager is working on the\
+i3 desktop, i have yet to test in any other desktop environment\
+on windows both work fine
+i could not test on mac because i dont have it.
+
 # Requirements
 Python 3 possible 3.8 is what i tested it.
 Opencv-python a python package
