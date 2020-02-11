@@ -1,31 +1,14 @@
-from random import choice
-from functions.batch_converter import makeoverlay, makebackground, combine
-import ctypes
-from cv2 import imread, imwrite
-from os.path import isdir, join, abspath
-from os import walk, system
-
-# This file contains all functions related to having the background process running
-
-class Colortext:
-    SUCCESS = '\033[92m'
-    WARNING = '\033[93m'
-    END = '\033[0m'
-
-
 def settings(timer=0, folder=''):
     if timer == 0:
-        print(Colortext.WARNING + 'Needs to have a timer set to bigger than 0' + Colortext.END)
         print('Set a timer in seconds to change wallpapers')
         timer = int(input('Timer:'))
     if folder == '':
-        print(Colortext.WARNING + 'Needs a folder to get images from' + Colortext.END)
         folder = input('Folder path:')
     while True:
         if isdir(folder):
             break
         else:
-            print(Colortext.WARNING + 'Is not a folder')
+            print(Colors.WARNING + 'Is not a folder')
     return timer, folder
 
 

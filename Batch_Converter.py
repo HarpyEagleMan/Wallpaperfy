@@ -1,9 +1,6 @@
 #!/bin/python
 from argparse import ArgumentParser
-from functions.batch_converter import get_screen_resolution, get_files, get_output_folder, makewallpaper
-from os import system
-from sys import platform
-from functions.WiRM import operationalSystem
+from base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper, operational_system, desktop_environment
 
 parser = ArgumentParser()
 parser.add_argument('-r', '--resolution', help='Onput the resolution of the screen that wallpapers should fit in'
@@ -26,14 +23,7 @@ if args.output:
 else:
     outputfolder = input('Type the path to output folder:')
 
-if operationalSystem is == 'linux': # change this into a way to find what is it is on
-    print('OS is linux')
-    try:
-        system('mkdir /tmp/wallpaperfy')
-    except:
-        pass
-elif operationalSystem:
-    print('operational system not linux')
+
 
 screenx, screeny = get_screen_resolution(screenress)
 screenx = int(screenx)

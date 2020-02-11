@@ -1,27 +1,31 @@
+# this file contains all functions to be used by wallpaperfy base applications. that is the batch converter
 import screeninfo
-from cv2 import imread, GaussianBlur, BORDER_DEFAULT, INTER_AREA, imwrite
-from cv2 import resize as cvresize
+from cv2 import imread, GaussianBlur, BORDER_DEFAULT, INTER_AREA, imwrite, resize
 from os.path import isdir, exists, join
 from os import walk
+from tempfile import gettempdir
 
+def verbose(message, color='N'):
+    class Colors:
+        OK = '\032[94m'
+        WARNING = '\032[93m'
+        ERROR = '\032[91m'
+        NORMAL = '\032[0m'
 
-# this file contains all functions related to converting images to wallpaper
-class Colortext:
-    SUCCESS = '\033[92m'
-    WARNING = '\033[93m'
-    END = '\033[0m'
-
-
-def verbose(message):
-    global verboseon
-    if verboseon:
+    if color.upper() == 'E':
+        print(Colors.ERROR + message + Colors.NORMAL)
+    elif color.upper() == 'W':
+        print(Colors.WARNING + message + Colors.NORMAL)
+    elif color.upper() == 'O':
+        print(Colors.OK + message + Colors.NORMAL)
+    else:
         print(message)
 
 
 def get_screen_resolution(screen=''):
     if screen == '':
-        screen = input("""Type the screen resolution with this format: width height. IE 1920 1080. 
-or type auto to auto detect the screen resolution:""").strip()
+        screen = input("""Type the screen resolution with this format: width height. IE 1920 1080.
+        or type auto to auto detect the screen resolution:""").strip()
     while True:
         if screen.upper() == 'AUTO':  # if auto detection was the chosen way to set resolution
             screen = str(screeninfo.get_monitors())
@@ -38,16 +42,9 @@ or type auto to auto detect the screen resolution:""").strip()
                 screeny = int(screen[screen.find(' '):len(screen)])
                 break
             else:
-                print(
-                    Colortext.WARNING + '\033[92m'"bad resolution, type only numbers with a space in between then"
-                                        ", like this 1920 1080." + Colortext.END)
                 screen = input('Type screen resolution width height:')
         else:
-            print(
-                Colortext.WARNING + '\033[92m'"bad resolution, type only numbers with a space in between then,"
-                                    " like this 1920 1080." + Colortext.END)
             screen = input('Type screen resolution width height:')
-    print(f'resolution set to {screenx}x{screeny}')
     return screenx, screeny
 
 
@@ -60,12 +57,10 @@ def get_files(path=''):
             if isdir(path):
                 break
             else:
-                print(Colortext.WARNING + 'Its not a folder. try another input folder' + Colortext.END)
                 path = input('Try again:')
         else:
-            print(Colortext.WARNING + 'It does not exist' + Colortext.END)
             path = input('Try again, another input folder:')
-    wallpaperfytemp = open('/tmp/wallpaperfy/wallpaperfytemp', 'w')
+    wallpaperfytemp = open(f'{gettempdir()}/wallpaperfylist', 'w')
     print('Geting all file that can be converted, please wait.')
     for root, dirs, files in walk(path):
         for file in files:
@@ -76,21 +71,20 @@ def get_files(path=''):
             if hasattr(image, 'shape'):
                 imagey, imagex, channels = image.shape
                 wallpaperfytemp.write(f':LINE={line}:SIZE={imagex}x{imagey}:PATH={join(root, file)}' + '\n')
-                print(Colortext.SUCCESS + 'Can be converted' + Colortext.END)
             else:
-                print(Colortext.WARNING + "Can't convert" + Colortext.END)
+                pass  #
     wallpaperfytemp.close()
 
 
 def makeoverlay(imagepath, imagex, imagey, screenx, screeny):
     scaleby = find_scale_factor(imagex, imagey, screenx, screeny)
-    overlay = resize(imagepath, imagex, imagey, scaleby)
+    overlay = resize_image(imagepath, imagex, imagey, scaleby)
     return overlay
 
 
 def makebackground(imagepath, imagex, imagey, screenx, screeny):
     scaleby = find_scale_factor(imagex, imagey, screenx, screeny, True)
-    background = resize(imagepath, imagex, imagey, scaleby)
+    background = resize_image(imagepath, imagex, imagey, scaleby)
     background = GaussianBlur(background, (31, 31), BORDER_DEFAULT)
     background = crop(background, screenx, screeny)
     return background
@@ -99,7 +93,7 @@ def makebackground(imagepath, imagex, imagey, screenx, screeny):
 def makewallpaper(screenx, screeny, output):
     print('Making wallpapers. Please wait')
     iteration = 0
-    file = open('/tmp/wallpaperfy/wallpaperfytemp', 'r')
+    file = open(f'{gettempdir()}/wallpaperfylist', 'r')
     for line in file:
         iteration += 1
         imagex = line[line.find('SIZE=') + 5: line.find('x')]
@@ -129,12 +123,12 @@ def find_scale_factor(imagex, imagey, screenx, screeny, background=False):
     return scaleby
 
 
-def resize(imagepath, imagex, imagey, scaleby):
+def resize_image(imagepath, imagex, imagey, scaleby):
     image = imread(imagepath)
     imagex = int(imagex * scaleby)
     imagey = int(imagey * scaleby)
     dim = (imagex, imagey)
-    resizedimage = cvresize(image, dim, interpolation=INTER_AREA)
+    resizedimage = resize(image, dim, interpolation=INTER_AREA)
     return resizedimage
 
 
@@ -174,10 +168,9 @@ def get_output_folder(output=''):
             if isdir(output):
                 break
             else:
-                print(Colortext.WARNING + 'this is not a folder')
                 output = input("Try again:")
         else:
-            print(Colortext.WARNING + 'This path does not exist')
             output = input('Try again:')
     return output
+
 
