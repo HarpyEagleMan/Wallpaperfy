@@ -51,8 +51,8 @@ def quickwallpaper(folder, screenx, screeny):
 def setwallpaper(folder, platform):
     if platform.startswith('win32'):
         path = abspath(folder)
-        imagepath = path + '/' + '.wallpaper.jpg'
-        windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
+        imagepath = path + '/' + 'wallpaper.jpg'
+        ctypes.windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
     elif platform.startswith('Darwin'):
         path = abspath(folder)
         imagepath = path + '/' + '.wallpaper.jpg'

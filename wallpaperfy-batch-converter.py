@@ -26,13 +26,13 @@ if args.output:
 else:
     outputfolder = input('Type the path to output folder:')
 
-if operationalSystem is  == 'linux': # change this into a way to find what is it is on
+if operationalSystem is == 'linux': # change this into a way to find what is it is on
     print('OS is linux')
     try:
         system('mkdir /tmp/wallpaperfy')
     except:
         pass
-eli operaf:
+elif operationalSystem:
     print('operational system not linux')
 
 screenx, screeny = get_screen_resolution(screenress)
