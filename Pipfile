@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 opencv-python = "*"
-screeninfo = "*"
+site-package = "*"
 
 [requires]
 python_version = "3.8"

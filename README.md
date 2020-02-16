@@ -25,10 +25,11 @@ tested on windows 10 and linux.
 i have yet to test it on any other os. if you want to test it and give me feed back feel free to do so
 
 # Requirements
-Python 3 possible 3.8 is what i tested it.
-opencv-python a python package
-screeninfo another python package
-Feh if on linux and it only works on i3 and maybe other Dynamic window managers. i dont know i have not tested it yet 
+Python 3
+opencv-python a python package, on freebsd py[version number]-opencv IE py3.7-opencv
+numpy
+screeninfo another python package and its dependencies
+
 
 # install
 Copy the contents of wallpaperfy folder to where you want to install. add this place to the PATH variable or make a
