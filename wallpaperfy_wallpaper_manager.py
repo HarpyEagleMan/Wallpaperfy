@@ -2,7 +2,7 @@
 from argparse import ArgumentParser
 from sys import platform
 from time import sleep
-from functions.background_process import quickwallpaper, setwallpaper, settings
+from wallpaperfy_wallpaper_manager_functions.background_process import quickwallpaper, setwallpaper, settings
 from communs import get_screen_resolution
 from os import system
 

@@ -1,6 +1,6 @@
 #!/bin/python
 from argparse import ArgumentParser
-from base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
+from wallpaperfy_base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
 
 parser = ArgumentParser()
 parser.add_argument('-r', '--resolution', help='The resolution of the screen that wallpapers should fit in'
