@@ -21,7 +21,7 @@ After Wallpaperfy
 
 It's a work in progress, wallpaper manager still not working but it can batch convert a folder and its sub folders into
 wallpapers, and output it into another folder, no problem.
-tested on windows 10 and linux.
+tested on windows 10, linux and freebsd.
 i have yet to test it on any other os. if you want to test it and give me feed back feel free to do so
 
 # Requirements
