@@ -47,13 +47,24 @@ def setwallpaper(platform):
     from os import system
     if platform.startswith('win32'):
         from ctypes import windll
-        #imagepath = f'{gettempdir()}/wallpaper.jpg'  # old way of doing it
-        windll.user32.SystemParametersInfoW(0x14, 0, f'{gettempdir()}/wallpaper.jpg', 0x2) # then in the middle section put imagepath
+        windll.user32.SystemParametersInfoW(0x14, 0, f'{gettempdir()}/wallpaper.jpg', 0x2)
     elif platform.startswith('Darwin'):
         script = f"""tell application "Finder"
                     set desktop picture to POSIX file {gettempdir()}/wallpaper.jpg
                     end tell"""
         system(script)
     else:
-        imagepath = f'{gettempdir()}/wallpaper.jpg'
-        system(f'feh --bg-center -z -r {imagepath}')
+        from os import environ
+        if environ.get('DESKTOP_SESSION') == 'gnome':
+            print('DE is gnome. currently not supported')
+        elif environ.get('DESKTOP_SESSION') == 'kde':
+            print('DE is kde. currently not supported. kde can also natively do what this application do')
+        elif environ.get('DESKTOP_SESSION') == 'xfce':
+            print('DE is xfce. currently not supported')
+        elif environ.get('DESKTOP_SESSION') == 'lxde':
+            print('DE is lxde. currently not supported')
+        elif environ.get('DESKTOP_SESSION') == 'lxqt':
+            print('DE is lxqt. currently not supported')
+        else:
+            imagepath = f'{gettempdir()}/wallpaper.jpg'
+            system(f'feh --bg-center -z -r {imagepath}')
