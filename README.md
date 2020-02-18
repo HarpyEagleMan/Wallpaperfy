@@ -36,16 +36,18 @@ Copy the contents of wallpaperfy folder to where you want to install. add this p
 simlink to Batch-converter from wherever is your PATH.
 
 # Running
-run wallpaperfy_batch_converter on a terminal and follow its instructions
-or run wallpaperfy_wallpaper_manager to run the automatic background changer. it works on windows and in unix platforms
+run python wallpaperfy_batch_converter.py on a terminal and follow its instructions
+or run python wallpaperfy_wallpaper_manager.py to run the automatic background changer. it works on windows and in unix platforms
 that uses i3 wm. i have not tested on anything else. but might work on mac and other DE for unix like oses
 
 # command line arguments
-you can pass these as arguments for Batch-converter 
--r "1920 1080" or whattever is your scree resolution. to set the resolution of the wallpapers. or just use -r auto\
+you can pass these as arguments for wallpaperfy-batch-converter.py
+-r "1920 1080" or whattever is your screen resolution. to set the resolution of the wallpapers. or just use -r auto\
 -i "path to input folder" this is where the folder containing the images to be wallpaperfied is. it will also take all
 images in subfolder
 -o "path to output folder" this is the folder where the images being converted will be saved to
+wallpaperfy_wallpaper_manager.py can accept -r -i but also has its unique argument
+-t 'number' use a number that will set how many seconds it takes untill the wallpaper is changed.
 
 # Donations
 if you are interested in this project, please consider making a donation to this crypto wallet.

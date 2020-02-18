@@ -1,11 +1,3 @@
-# this file contains all functions to be used by wallpaperfy base applications. that is the batch converter
-import screeninfo
-from cv2 import imread, GaussianBlur, BORDER_DEFAULT, INTER_AREA, imwrite, resize
-from os.path import isdir, exists, join
-from os import walk
-from tempfile import gettempdir
-
-
 def verbose(message, color='N'):
     class Colors:
         OK = '\032[94m'
@@ -23,6 +15,7 @@ def verbose(message, color='N'):
 
 
 def get_screen_resolution(screen=''):
+    import screeninfo
     if screen == '':
         screen = input("""Type the screen resolution with this format: width height. IE 1920 1080.
         or type auto to auto detect the screen resolution:""").strip()
@@ -49,6 +42,10 @@ def get_screen_resolution(screen=''):
 
 
 def get_files(path=''):
+    from os.path import isdir, exists, join
+    from os import walk
+    from cv2 import imread
+    from tempfile import gettempdir
     line = 0
     if path == '':
         path = input('Enter path to input folder:')
@@ -83,6 +80,7 @@ def makeoverlay(imagepath, imagex, imagey, screenx, screeny):
 
 
 def makebackground(imagepath, imagex, imagey, screenx, screeny):
+    from cv2 import GaussianBlur, BORDER_DEFAULT
     scaleby = find_scale_factor(imagex, imagey, screenx, screeny, True)
     background = resize_image(imagepath, imagex, imagey, scaleby)
     background = GaussianBlur(background, (31, 31), BORDER_DEFAULT)
@@ -91,6 +89,7 @@ def makebackground(imagepath, imagex, imagey, screenx, screeny):
 
 
 def makewallpaper(screenx, screeny, output):
+    from tempfile import gettempdir
     print('Making wallpapers. Please wait')
     iteration = 0
     file = open(f'{gettempdir()}/wallpaperfylist', 'r')
@@ -109,7 +108,6 @@ def makewallpaper(screenx, screeny, output):
 
 
 def find_scale_factor(imagex, imagey, screenx, screeny, background=False):
-    global scaleby
     if not background:
         scaleby = screenx / imagex
         testsize = imagey * scaleby
@@ -124,6 +122,7 @@ def find_scale_factor(imagex, imagey, screenx, screeny, background=False):
 
 
 def resize_image(imagepath, imagex, imagey, scaleby):
+    from cv2 import imread, resize, INTER_AREA
     image = imread(imagepath)
     imagex = int(imagex * scaleby)
     imagey = int(imagey * scaleby)
@@ -133,6 +132,7 @@ def resize_image(imagepath, imagex, imagey, scaleby):
 
 
 def save(name, image):  # saves new image
+    from cv2 import imwrite
     imwrite(name, image)
 
 
@@ -161,6 +161,7 @@ def crop(image, screenx, screeny):
 
 
 def get_output_folder(output=''):
+    from os.path import isdir, exists
     if output == '':
         output = input('Type the path to the output folder:')
     while True:
@@ -174,7 +175,7 @@ def get_output_folder(output=''):
     return output
 
 
-def checkindex(run):
+"""def checkindex(run): # this is a mudule for somethinig what was not implemented yet
     index = open('data/index', 'r')
     line_number = 0
     for line in index:
@@ -183,4 +184,4 @@ def checkindex(run):
             path = line[line.find('==') + 2:]
             print(path)
             return path
-    exit(f'No plugin named {run} found')
+    exit(f'No plugin named {run} found')"""

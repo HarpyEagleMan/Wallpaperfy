@@ -1,13 +1,8 @@
-from os.path import isdir, join
-from os import walk, system
-from ctypes import windll
-from random import choice
-from wallpaperfy_base_functions import verbose, makebackground, makeoverlay, combine
-from cv2 import imread, imwrite
-from tempfile import gettempdir
+from wallpaperfy_base_functions import verbose
 
 
 def settings(timer=0, folder=''):
+    from os.path import isdir
     if timer == 0:
         print('Set a timer in seconds to change wallpapers')
         timer = int(input('Timer:'))
@@ -18,10 +13,17 @@ def settings(timer=0, folder=''):
             break
         else:
             verbose('Is not a folder', 'error')
+            folder = input('Try another path')
     return timer, folder
 
 
 def quickwallpaper(folder, screenx, screeny):
+    from os.path import join
+    from os import walk
+    from random import choice
+    from tempfile import gettempdir
+    from cv2 import imwrite, imread
+    from wallpaperfy_base_functions import makeoverlay, makebackground, combine
     while True:
         files = [join(path, filename)
                  for path, dirs, files in walk(folder)
@@ -38,14 +40,18 @@ def quickwallpaper(folder, screenx, screeny):
             break
         else:
             pass
+
+
 def setwallpaper(platform):
+    from tempfile import gettempdir
+    from os import system
     if platform.startswith('win32'):
-        imagepath = f'{gettempdir()}/wallpaper.jpg'
-        windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
+        from ctypes import windll
+        #imagepath = f'{gettempdir()}/wallpaper.jpg'  # old way of doing it
+        windll.user32.SystemParametersInfoW(0x14, 0, f'{gettempdir()}/wallpaper.jpg', 0x2) # then in the middle section put imagepath
     elif platform.startswith('Darwin'):
-        imagepath = f'{gettempdir()}/wallpaper.jpg'
         script = f"""tell application "Finder"
-                    set desktop picture to POSIX file {imagepath}
+                    set desktop picture to POSIX file {gettempdir()}/wallpaper.jpg
                     end tell"""
         system(script)
     else:
