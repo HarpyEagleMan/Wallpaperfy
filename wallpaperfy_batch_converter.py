@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from wallpapaerfy_base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
+from wallpaperfy_base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
 
 
 # Argument handling
