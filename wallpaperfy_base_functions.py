@@ -5,15 +5,15 @@ from os.path import isdir, exists, join
 from os import walk
 from tempfile import gettempdir
 
+
 def verbose(message, color='N'):
     class Colors:
         OK = '\032[94m'
         WARNING = '\032[93m'
         ERROR = '\032[91m'
         NORMAL = '\032[0m'
-
     if color.upper() == 'E':
-        print(Colors.ERROR + message + Colors.NORMAL)
+        print(f'{Colors.ERROR}{message}{Colors.NORMAL})')
     elif color.upper() == 'W':
         print(Colors.WARNING + message + Colors.NORMAL)
     elif color.upper() == 'O':
@@ -174,3 +174,13 @@ def get_output_folder(output=''):
     return output
 
 
+def checkindex(run):
+    index = open('data/index', 'r')
+    line_number = 0
+    for line in index:
+        line_number += 1
+        if run.upper() in line.upper():
+            path = line[line.find('==') + 2:]
+            print(path)
+            return path
+    exit(f'No plugin named {run} found')
