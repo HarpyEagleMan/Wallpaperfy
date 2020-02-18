@@ -1,10 +1,8 @@
-#!/bin/python
 from argparse import ArgumentParser
 from sys import platform
 from time import sleep
-from wallpaperfy_wallpaper_manager_functions.background_process import quickwallpaper, setwallpaper, settings
-from communs import get_screen_resolution
-from os import system
+from wallpaperfy_wallpaper_manager_functions import quickwallpaper, setwallpaper, settings
+from wallpapaerfy_base_functions import get_screen_resolution
 
 parser = ArgumentParser()
 
@@ -26,11 +24,6 @@ if args.input:
     sfolder = args.input
 else:
     sfolder = ''
-
-try:
-    system('mkdir /tmp/wallpaperfy')
-except:
-    pass
 timer, folder = settings(stimer, sfolder)
 timer = int(timer)
 screenx, screeny = get_screen_resolution(sress)
@@ -38,12 +31,11 @@ screenx = int(screenx)
 screeny = int(screeny)
 print("""
 Your wallpaper should change in a moment
-
 If you liked this software please consider making a donation to one these crypto wallet
 ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
 bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
 Monero: 45L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
 while True:
     quickwallpaper(folder, screenx, screeny)
-    setwallpaper(folder, platform)
+    setwallpaper(platform)
     sleep(timer)
