@@ -2,7 +2,7 @@ from os.path import isdir, join
 from os import walk, system
 from ctypes import windll
 from random import choice
-from wallpapaerfy_base_functions import verbose, makebackground, makeoverlay, combine
+from wallpaperfy_base_functions import verbose, makebackground, makeoverlay, combine
 from cv2 import imread, imwrite
 from tempfile import gettempdir
 
