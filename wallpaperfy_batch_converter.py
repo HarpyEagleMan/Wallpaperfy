@@ -1,7 +1,8 @@
-#!/bin/python
 from argparse import ArgumentParser
-from wallpaperfy_base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
+from wallpapaerfy_base_functions import get_screen_resolution, get_files, get_output_folder, makewallpaper
 
+
+# Argument handling
 parser = ArgumentParser()
 parser.add_argument('-r', '--resolution', help='The resolution of the screen that wallpapers should fit in'
                                                'use this format: width height, like this: 1920 1080, it also '
@@ -10,6 +11,7 @@ parser.add_argument('-i', '--input', help='Folder from where the images will be 
 parser.add_argument('-o', '--output', help='Folder to where the wallpaper will be saved')
 args = parser.parse_args()
 
+# parsing arguments
 if args.resolution:
     screenress = args.resolution
 else:
@@ -23,6 +25,8 @@ if args.output:
 else:
     outputfolder = input('Type the path to output folder:')
 
+# end argument handling
+# Batch converting
 screenx, screeny = get_screen_resolution(screenress)
 screenx = int(screenx)
 screeny = int(screeny)
