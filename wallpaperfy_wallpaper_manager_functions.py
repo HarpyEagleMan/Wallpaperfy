@@ -1,3 +1,12 @@
+from os.path import isdir, join
+from os import walk, system
+from ctypes import windll
+from random import choice
+from wallpapaerfy_base_functions import verbose, makebackground, makeoverlay, combine
+from cv2 import imread, imwrite
+from tempfile import gettempdir
+
+
 def settings(timer=0, folder=''):
     if timer == 0:
         print('Set a timer in seconds to change wallpapers')
@@ -8,7 +17,7 @@ def settings(timer=0, folder=''):
         if isdir(folder):
             break
         else:
-            print(Colors.WARNING + 'Is not a folder')
+            verbose('Is not a folder', 'error')
     return timer, folder
 
 
@@ -24,25 +33,21 @@ def quickwallpaper(folder, screenx, screeny):
             overlay = makeoverlay(path, imagex, imagey, screenx, screeny)
             background = makebackground(path, imagex, imagey, screenx, screeny)
             wallpaper = combine(background, overlay)
-            imagename = '/tmp/wallpaperfy/wallpaper.jpg'
+            imagename = f'{gettempdir()}/wallpaper.jpg'
             imwrite(imagename, wallpaper)
             break
         else:
             pass
-
-
-def setwallpaper(folder, platform):
+def setwallpaper(platform):
     if platform.startswith('win32'):
-        path = abspath(folder)
-        imagepath = path + '/' + 'wallpaper.jpg'
-        ctypes.windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
+        imagepath = f'{gettempdir()}/wallpaper.jpg'
+        windll.user32.SystemParametersInfoW(0x14, 0, imagepath, 0x2)
     elif platform.startswith('Darwin'):
-        path = abspath(folder)
-        imagepath = path + '/' + '.wallpaper.jpg'
+        imagepath = f'{gettempdir()}/wallpaper.jpg'
         script = f"""tell application "Finder"
                     set desktop picture to POSIX file {imagepath}
                     end tell"""
         system(script)
     else:
-        imagepath = '/tmp/wallpaperfy/wallpaper.jpg'
+        imagepath = f'{gettempdir()}/wallpaper.jpg'
         system(f'feh --bg-center -z -r {imagepath}')
