@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from sys import platform
 from time import sleep
 from wallpaperfy_wallpaper_manager_functions import quickwallpaper, setwallpaper, settings
-from wallpapaerfy_base_functions import get_screen_resolution
+from wallpaperfy_base_functions import get_screen_resolution
 
 parser = ArgumentParser()
 
