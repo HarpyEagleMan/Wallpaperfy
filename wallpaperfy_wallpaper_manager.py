@@ -29,13 +29,17 @@ timer = int(timer)
 screenx, screeny = get_screen_resolution(sress)
 screenx = int(screenx)
 screeny = int(screeny)
-print("""
-Your wallpaper should change in a moment
-If you liked this software please consider making a donation to one these crypto wallet
-ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
-bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
-Monero: 45L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
+print('wallpaper will change in a moment')
+nag = False
 while True:
     quickwallpaper(folder, screenx, screeny)
     setwallpaper(platform)
+    if not nag:
+        print("""
+    Your wallpaper should change in a moment
+    If you liked this software please consider making a donation to one these crypto wallet
+    ethereum: 0xa69aE6A70F15fb3ACBccFbd9B962582d44A98423
+    bitcoin: bc1qfctjg78yspl66m65kchjaceuhtqsnekscn9v7m
+    Monero: 45L5E2tFT7K4G1GZwAuLyGQx82KeQeaCyLNZ9TtPzDWdcchV1x4Xwc2VgzPLUXS4gQ8fYLUXFHuND9SZju2DN8pjDbh7wEh""")
+        nag = True
     sleep(timer)
