@@ -45,26 +45,25 @@ def quickwallpaper(folder, screenx, screeny):
 def setwallpaper(platform):
     from tempfile import gettempdir
     from os import system
+    imagepath = f'{gettempdir()}/wallpaper.jpg'
     if platform.startswith('win32'):
         from ctypes import windll
-        windll.user32.SystemParametersInfoW(0x14, 0, f'{gettempdir()}/wallpaper.jpg', 0x2)
+        windll.user32.SystemParametersInfoW(0x14, 0, f'{imagepath}', 0x2)
     elif platform.startswith('Darwin'):
         script = f"""tell application "Finder"
-                    set desktop picture to POSIX file {gettempdir()}/wallpaper.jpg
+                    set desktop picture to POSIX file {imagepath}/wallpaper.jpg
                     end tell"""
         system(script)
     else:
         from os import environ
-        if environ.get('DESKTOP_SESSION') == 'gnome':
-            print('DE is gnome. currently not supported')
-        elif environ.get('DESKTOP_SESSION') == 'kde':
-            print('DE is kde. currently not supported. kde can also natively do what this application do')
-        elif environ.get('DESKTOP_SESSION') == 'xfce':
+        if 'gnome' in environ.get('DESKTOP_SESSION'):
+            import gconf
+            conf = gconf.client_get_default()
+            conf.set_string('/desktop/gnome/background/picture_filename', '/path/to/filename.jpg')
+        elif 'plasma' in environ.get('DESKTOP_SESSION'):
+            print("DE is kde's plasma. plasma can also natively do what this application do")
+        elif 'xfce' in environ.get('DESKTOP_SESSION'):
             print('DE is xfce. currently not supported')
-        elif environ.get('DESKTOP_SESSION') == 'lxde':
-            print('DE is lxde. currently not supported')
-        elif environ.get('DESKTOP_SESSION') == 'lxqt':
-            print('DE is lxqt. currently not supported')
         else:
-            imagepath = f'{gettempdir()}/wallpaper.jpg'
+            print('Unknown DE')
             system(f'feh --bg-center -z -r {imagepath}')

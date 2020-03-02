@@ -3,3 +3,6 @@
 .idea/inspectionProfiles/
 .idea/modules.xml
 .idea/vcs.xml
+Pipfile
+Pipfile.lock
+.idea/misc.xml
